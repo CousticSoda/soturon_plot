@@ -5,6 +5,8 @@ import matplotlib as mpl
 import re
 import japanize_matplotlib
 from matplotlib.ticker import FixedLocator, FixedFormatter
+from matplotlib.ticker import FuncFormatter
+from matplotlib.ticker import FuncFormatter, MultipleLocator
 
 mpl.rcParams['font.size']      = 14
 mpl.rcParams['axes.titlesize'] = 18
@@ -88,6 +90,14 @@ groups = [
     (["70dB,20℃_小松菜","40dB,20℃_小松菜","40dB,13℃_小松菜"], "各実験環境における小松菜の発芽数", "発芽数(個)")
 ]
 
+# --- y軸フォーマッターを定義 ---
+def make_max_formatter(max_value):
+  def formatter(x, pos):
+    #少数誤差対策に int(x)で比較
+    if int(x) == max_value:
+      return f"{int(x)}(max)"
+    return str(int(x))
+  return FuncFormatter(formatter)
 
 
 def convert_label(idx):
@@ -107,6 +117,23 @@ for cols, title, ylabel in groups:
     ax = plt.gca()
     df_interp[cols].plot(ax=ax, color=colors, marker=None)
     df[cols].plot (ax=ax, linestyle='None', marker='o', color=colors, legend=False)
+
+    if "発芽数" in title:
+        # 発芽数プロットは0～80に固定＆80(max)
+        ax.set_ylim(0, 80)
+        ax.yaxis.set_major_formatter(make_max_formatter(80))
+           # Y 軸は少し下まで余白を取りつつ、目盛は 0,10,...,80 に限定
+        ax.set_ylim(-5, 80)                      # グラフ領域は -5 から 80
+        ax.yaxis.set_major_locator(MultipleLocator(10))  # 目盛を 0,10,20…,80 に
+        ax.yaxis.set_major_formatter(make_max_formatter(80))
+    else:
+        # 温度差プロットは上限だけ21に設定
+        ax.set_ylim(top=21)
+        ax.yaxis.set_major_locator(MultipleLocator(1))   
+        ax.yaxis.set_major_formatter(
+            FuncFormatter(lambda x, pos: str(int(x)))
+        )
+    
 
     # ← ここで全ラベルを一括設定
     ax.set_xticks(range(len(df)))
