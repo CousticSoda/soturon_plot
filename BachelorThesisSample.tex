@@ -1,0 +1,1649 @@
+%
+% 卒業論文本体テンプレート
+% BachelorThesis.tex
+% By KASHINA, Yuki (EM-14003)
+%  Version 1.0.3 (December 8, 2015, Tuesday)
+%
+\documentclass{BachelorThesis}
+%\documentclass[fleqn]{BachelorThesis} %数式左寄せ
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ユーザ任意のパッケージ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{booktabs}
+%\usepackage{multirow}
+%\usepackage{xcolor}%%%%%%%%%%%%%%%%%%%%%%%コメントアウトするとpng,jpgが正常に読み込まれる
+\usepackage{lscape}%%表の縮小用
+\usepackage{comment}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+%\usepackage{listings,jlisting}%%ソースコード用
+
+\usepackage{ascmac, here, txfonts, txfonts}
+\usepackage{listings, jlisting}
+\usepackage{color}
+
+%プログラム挿入の設定
+\lstset{
+	%プログラム言語(複数の言語に対応，C,C++も可)
+ 	language = R,
+ 	%背景色と透過度
+ 	backgroundcolor={\color[gray]{.90}},
+ 	%枠外に行った時の自動改行
+ 	breaklines = true,
+ 	%自動開業後のインデント量(デフォルトでは20[pt])	
+ 	breakindent = 10pt,
+ 	%標準の書体
+ 	basicstyle = \ttfamily\scriptsize,
+ 	%basicstyle = {\small}
+ 	%コメントの書体
+ 	commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+ 	%関数名等の色の設定
+ 	classoffset = 0,
+ 	%キーワード(int, ifなど)の書体
+ 	keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+ 	%""で囲まれたなどの"文字"の書体
+ 	stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+ 	%枠 "t"は上に線を記載, "T"は上に二重線を記載
+	%他オプション：leftline，topline，bottomline，lines，single，shadowbox
+ 	frame = TBrl,
+ 	%frameまでの間隔(行番号とプログラムの間)
+ 	framesep = 5pt,
+ 	%行番号の位置
+ 	numbers = left,
+	%行番号の間隔
+ 	stepnumber = 1,
+	%右マージン
+ 	%xrightmargin=0zw,
+ 	%左マージン
+	%xleftmargin=3zw,
+	%行番号の書体
+ 	numberstyle = \tiny,
+	%タブの大きさ
+ 	tabsize = 4,
+ 	%キャプションの場所("tb"ならば上下両方に記載)
+ 	captionpos = t
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% マクロ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%<local definition>
+%</local definition>
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 行間調整（卒業論文本体では非推奨）
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\baselinestretch}{1.0}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 書誌情報
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 日本語タイトル・サブタイトル
+\jtitle{音刺激付加による食用野菜の生長への影響}{}
+
+%%% 英語タイトル・サブタイトル
+\etitle{Effect on edible vegetable growth by sound stimulation}{}
+
+%%% 所属学部学科
+\affiliate{情報学部　コンピュータ科学科}
+
+%%% 所属研究室
+\laboratory{数理音響学研究室}
+
+%%% 氏名・学籍番号
+\author{栗山仁志}{j1-17101}
+
+%%% 指導教官名・指導教官役職
+\supervisor{中島~弘史}{准教授}
+
+%%% 年度（通常は指定不要）
+%\setyear{2015}
+
+%%% 目次の有効化
+\toctrue
+
+%%% 図目次の有効化
+\loftrue
+
+%%% 表目次の有効化
+\lottrue
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% プリアンプルの終わり
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 前文（要旨）
+\abstract
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+音刺激付加によって植物の生育が促進することが確認されている。坂本の研究ではカイワレ大根に低周波かつ高音圧の音源を付加した条件下で生長の促進を確認している。深井の研究ではミニひまわりとキンセンカに付加した音源の周波数によらず葉数と草丈の生長が促進することが確認されている。
+これらの研究はいずれも葉や茎を対象とした研究であり、根、果実、花など植物の他の部分を対象とした研究は行われていない。\par
+これを踏まえ本研究では音刺激付加が根に与える影響を二十日大根を用いて検証した。実験では音源を付加する個体群(音刺激群)、付加しない無音群でそれぞれ20株を対象として行った。実験期間は35日間で1日8時間音刺激を付加した。計測は草丈、葉身長、葉振幅、収穫後の大根で長さ、幅、重量を対象として行った。計測データは各種検定(t検定・ウィルコクソンの順位和検定)を実施して有意性の確認をした。\par
+実験を行った結果、草丈、子葉の葉身長、葉振幅で音刺激群が無音群より大きい有意性のある生長が確認できた。一方第2世代の一部の週では葉身長で無音群が大きくなる記録も得られた。また収穫後の大根の計測では、長さにおいて無音群が大きくなることが確認できた。\par
+これらの結果から音刺激によって葉や草丈の生長の促進が起こることで養分が葉に集中し、根(大根)の生長が抑制されたと推測される。
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 本文
+\main
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\listoftables
+
+
+\chapter{はじめに}
+\section{背景}%%%%%加筆
+%植物の生育において音刺激が何らかの影響を与えることが確認されている。
+音刺激の植物へ与える効果の研究報告は過去に多く存在する\cite{key1}\cite{key2}\cite{key4}。
+坂本は、カイワレ大根に40Hzから16000Hzの周波数の音を連続再生して音が与える影響を計測する研究を行った\cite{key1}。この実験では音刺激付加をした個体の重量と茎の太さが大きくなる有意な差が確認できた。
+深井はミニひまわりとキンセンカを用いて種植えから開花まで継続して長期間の実験を行った\cite{key3}。この実験では植物の葉を対象として行われ、音刺激により葉数・草丈に有意な差のある上昇を確認した。
+平井らはキュウリとひまわりを用いて植物の乾燥重量、葉の気孔開度、アブシジン酸の量に着目した研究を行った\cite{key2}。アブシジン酸は、植物の休眠・老化をを促進し、成長・発芽を抑制、気孔を閉じさせる性質を持つ植物ホルモンの一種である。この実験ではアブシジン酸が音刺激により増加し気孔開度と乾燥重量が低下した。これにより音刺激が植物の生育抑制を引き起こすことが確認された。
+\par
+これらの実験より音刺激は植物の生長に有意な影響を与えていることが分かる。\par
+
+音刺激によって植物の栽培に有効な結果が得られれば、農業における安全性の向上、費用削減など良い効果が得られる。例えば、栽培時に使用する農薬や肥料の利用を音刺激に置き換えることが出来る。これにより農薬や肥料を使用しないこと又は減らすことで安全性の向上及びコスト削減を実現できる。 \par
+
+実際の栽培現場での有用性を考慮すると、今までに行われた研究は直接結びつかないものが多い。前述した研究では食用でない植物や食用でも測定対象が葉や果実に限定されている。また実験期間も実際の栽培期間が月単位であることを考慮すると圧倒的に短いと言える。\par
+
+これを踏まえると、実際の栽培現場で音刺激の有用性を検証する事は重要である。具体的には、実験期間を長期間とし実験対象を葉だけでなく他の部分(根、花、果実)に広げた実験を行うことが実用的な価値につながる。
+
+
+%しかしそれらの実験は、用いられる植物の葉の部分を主な研究対象とする実験がほとんどであった。また実験期間も実際の植物の生長期間と比べ短い研究が多い。
+
+
+
+%しかしこれらの実験は植物の葉以外に対する計測は行われていない。植物には葉のほかに花、根、果実といった構成要素がある。過去の先行研究をから、それらに対する研究が不足していると言える。
+
+%%%%%%%%%%%%%%%この下はどうするか考える箇所
+
+%そこで音刺激が植物の生育に与える影響をさらに詳しく調査するために、根菜類である二十日大根を対象にして実験をする。具体的には、葉や草丈に加え大根の大きさや重量などを計測することで、音刺激の植物に与える影響をより詳しく確認できる。
+
+
+
+
+
+
+\section{目的}
+音刺激を付加することによる根菜類の生長への影響を調査する。本研究では根菜類として二十日大根に着目する。
+
+%音刺激を与えることで野菜の成長に与える影響を調査する。
+
+\section{アプローチ}
+本研究では、二十日大根に既定の周波数の音刺激を長期間に渡り付加しその生育を観察する実験を行う。
+
+実験では17kHzの正弦波を音刺激として使用する。実験対象には二十日大根を使用する。音刺激付加は1日8時間付加し35日間連続で実施する。生育期間中は、草丈、葉身長、葉身幅を記録する。35日間経過後、収獲をし、二十日大根の長さ、幅、重量を記録する。また実験環境の記録に温度、照度を用いる。\par
+分析は各種計測箇所のデータに対し各種検定を実施する。使用する検定はt検定とウィルコクソンの順位和検定を正規性の有無に応じて利用する。また実際に検定を実施するツールにはRを用いる。この結果から有意性の検証を行う。\par
+実験の詳しい手順は後述の章で説明する。
+
+
+\chapter{関連研究}
+本章では音と植物に関する研究について紹介する。
+
+\section{音刺激によるカイワレダイコンの生長促進について}%%%%%
+坂本はカイワレ大根に70dBと90dBで40Hzから16000Hzの周波数の正弦波を1日9時間音刺激として加える実験を行った\cite{key1}。その結果70dBの音源を付加した個体は40Hz、90dBの音源を付加した個体は100Hz、200Hzの条件で生長の促進が見られた。一方で高い周波数の音源を付加した個体はどちらの音圧でも生長の抑制が見られた。これらのことから低周波かつ音圧の高い音源で成長が促進することが確認された。\par
+
+この研究では実験期間が3日間である。
+
+
+\section{音刺激によるダイズおよびキュウリの葉面電位の変化}%ホンの話を書く%%%%%%
+土屋らは音刺激が与えるダイズとキュウリの葉面電位の変化について実験を行った\cite{key4}。この実験では音刺激として85dBの10Hzから20kHzの周波数の音源を用いて実施された。その結果30Hzから290Hzの周波数で葉面電位の急激な変化(パルス)が見られた。また実験開始前よりパルスが計測されていた個体でも発生頻度が増加した。これにより特定の周波数の音刺激が葉面電位に影響を与えることが確認された。\par
+
+この研究では各周波数の音刺激を1分ずつ付加し、即座に得られる反応を調査する方法を採用している。
+
+\section{音刺激による植物の生長度合の変化}%%%%%%%
+深井は音刺激が与えるミニひまわりと金せん花の葉数、葉面積等への影響について実験を行った\cite{key3}。この実験では音刺激として約70dBで100Hzと17kHzの正弦波を35日間連続して付加した。その結果、周波数の差は関係なく音刺激によって葉数と草丈の生長が促進されることが確認された。また葉身長、葉身幅、葉面積には若干の生長促進があったが有意性は見られなかった。\par
+この研究では使用した植物の葉に対する影響を調査している。
+
+\chapter{関連知識}
+
+\section{統計分析の手法}
+本章では栗原の書籍\cite{nyuumon}とデータ科学便覧のサイト\cite{databinran}を参考にした。また表\ref{tab:jyuniwa}はデータ科学便覧のサイト\cite{databinran}を引用した。%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{検定について}
+検定とは実験等で得られた複数の標本が同じ母集団から抽出されたものかを確認する手法である。検定の結果から、同じ母集団から抽出されたならば標本の間に有意な差がないことが分かり、抽出されていないならば有意な差があると確認することが出来る。\par
+次に検定の流れについて説明する。例として1つの正規分布に従う標本がある母集団から抽出されたものかを検定する手順を取り上げる。はじめに帰無仮説と対立仮説について説明する。これは証明したい仮説と反対(棄却したい)の仮説を帰無仮説と設定し、証明したい仮説を対立仮説と設定する。次に有意水準について説明する。有意水準とは前文で述べた標本がある母集団から抽出されたものか判断をする具体的な境界のことである。図\ref{fig:seikibunpu}に示した通りに有意水準5\%の場合標本平均が、$\mu-1.96\sigma_x \leq  \bar{x} \leq \mu+1.96\sigma_x (\mu:母平均,\sigma_x :母標準誤差,\bar{x}:標本平均)$の範囲内(青)にあれば帰無仮説が採用され、範囲外(赤)であれば対立仮説が採用される。また図\ref{fig:seikibunpu}を見ると前文の式の範囲外になる事は5\%と稀であるから、この範囲外になることは偶然ではないと言える。\par
+また本実験において帰無仮説を「音刺激による成長度合いに差はない」、対立仮説を「音刺激による成長度合いに差がある」と設定する。検定を実施して帰無仮説が棄却されれば、音刺激によって成長が促進されたと結論付けることが出来る。
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.5]{pdf/正規分布.pdf}
+\caption{正規分布}
+\label{fig:seikibunpu}
+\end{center}
+\end{figure}
+
+\subsection{t検定について}
+t検定とは2つの正規分布に従う標本が同じ母集団から抽出された標本であるかを、2群の標本平均の差を用いて検証できるパラメトリック検定である。検定統計量にt値$t=\frac{\bar{x_1}-\bar{x_2}}    {\sqrt{\hat{\sigma}^2(\frac{1}{n_1} +\frac{1}{n_2} ) } }   (\bar{x_1}.\bar{x_2}:各標本の標本平均,n_1.n_2:各標本の標本数,\hat{\sigma}:不偏分散) $が用いられる。またこの検定の信頼区間の計算にはt分布表(表\ref{tab:tbunpu})を用いる。このt分布表を用いて信頼限界を計算しt値を比較するか、t値からp値を求めて有意水準と比較をすることで帰無仮説の棄却を確認することが出来る。\par
+本研究では対象の標本がどちらも正規分布に従う場合、t検定を用いて有意性の確認を行う。
+\newpage
+
+
+
+\begin{table}[htb]
+\begin{center}
+\caption{T分布表(P: P値, df: 自由度)}
+\label{tab:tbunpu}
+\scalebox{0.6}{%%
+\begin{tabular}{c||c|c|c|c|c|c|c|c}
+\hline
+df＼P & 0.5 & 0.4 & 0.3 & 0.2 & 0.1 & 0.05 & 0.02 & 0.01 \\\hline\hline
+1 & 1.000 & 1.376 & 1.963 & 3.078 & 6.314 & 12.706 & 31.821 & 63.657 \\\hline
+2 & 0.816 & 1.061 & 1.386 & 1.886 & 2.920 & 4.303 & 6.965 & 9.925 \\\hline
+3 & 0.765 & 0.978 & 1.250 & 1.638 & 2.353 & 3.182 & 4.541 & 5.841 \\\hline
+4 & 0.741 & 0.941 & 1.190 & 1.533 & 2.132 & 2.776 & 3.747 & 4.604 \\\hline
+5 & 0.727 & 0.920 & 1.156 & 1.476 & 2.015 & 2.571 & 3.365 & 4.032 \\\hline
+6 & 0.718 & 0.906 & 1.134 & 1.440 & 1.943 & 2.447 & 3.143 & 3.707 \\\hline
+7 & 0.711 & 0.896 & 1.119 & 1.415 & 1.895 & 2.365 & 2.998 & 3.499 \\\hline
+8 & 0.706 & 0.889 & 1.108 & 1.397 & 1.860 & 2.306 & 2.896 & 3.355 \\\hline
+9 & 0.703 & 0.883 & 1.100 & 1.383 & 1.833 & 2.262 & 2.821 & 3.250 \\\hline
+10 & 0.700 & 0.879 & 1.093 & 1.372 & 1.812 & 2.228 & 2.764 & 3.169 \\\hline
+11 & 0.697 & 0.876 & 1.088 & 1.363 & 1.796 & 2.201 & 2.718 & 3.106 \\\hline
+12 & 0.695 & 0.873 & 1.083 & 1.356 & 1.782 & 2.179 & 2.681 & 3.055 \\\hline
+13 & 0.694 & 0.870 & 1.079 & 1.350 & 1.771 & 2.160 & 2.650 & 3.012 \\\hline
+14 & 0.692 & 0.868 & 1.076 & 1.345 & 1.761 & 2.145 & 2.624 & 2.977 \\\hline
+15 & 0.691 & 0.866 & 1.074 & 1.341 & 1.753 & 2.131 & 2.602 & 2.947 \\\hline
+16 & 0.690 & 0.865 & 1.071 & 1.337 & 1.746 & 2.120 & 2.583 & 2.921 \\\hline
+17 & 0.689 & 0.863 & 1.069 & 1.333 & 1.740 & 2.110 & 2.567 & 2.898 \\\hline
+18 & 0.688 & 0.862 & 1.067 & 1.330 & 1.734 & 2.101 & 2.552 & 2.878 \\\hline
+19 & 0.688 & 0.861 & 1.066 & 1.328 & 1.729 & 2.093 & 2.539 & 2.861 \\\hline
+20 & 0.687 & 0.860 & 1.064 & 1.325 & 1.725 & 2.086 & 2.528 & 2.845 \\\hline
+21 & 0.686 & 0.859 & 1.063 & 1.323 & 1.721 & 2.080 & 2.518 & 2.831 \\\hline
+22 & 0.686 & 0.858 & 1.061 & 1.321 & 1.717 & 2.074 & 2.508 & 2.819 \\\hline
+23 & 0.685 & 0.858 & 1.060 & 1.319 & 1.714 & 2.069 & 2.500 & 2.807 \\\hline
+24 & 0.685 & 0.857 & 1.059 & 1.318 & 1.711 & 2.064 & 2.492 & 2.797 \\\hline
+25 & 0.684 & 0.856 & 1.058 & 1.316 & 1.708 & 2.060 & 2.485 & 2.787 \\\hline
+26 & 0.684 & 0.856 & 1.058 & 1.315 & 1.706 & 2.056 & 2.479 & 2.779 \\\hline
+27 & 0.684 & 0.855 & 1.057 & 1.314 & 1.703 & 2.052 & 2.473 & 2.771 \\\hline
+28 & 0.683 & 0.855 & 1.056 & 1.313 & 1.701 & 2.048 & 2.467 & 2.763 \\\hline
+29 & 0.683 & 0.854 & 1.055 & 1.311 & 1.699 & 2.045 & 2.462 & 2.756 \\\hline
+30 & 0.683 & 0.854 & 1.055 & 1.310 & 1.697 & 2.042 & 2.457 & 2.750 \\\hline
+31 & 0.682 & 0.853 & 1.054 & 1.309 & 1.696 & 2.040 & 2.453 & 2.744 \\\hline
+32 & 0.682 & 0.853 & 1.054 & 1.309 & 1.694 & 2.037 & 2.449 & 2.738 \\\hline
+33 & 0.682 & 0.853 & 1.053 & 1.308 & 1.692 & 2.035 & 2.445 & 2.733 \\\hline
+34 & 0.682 & 0.852 & 1.052 & 1.307 & 1.691 & 2.032 & 2.441 & 2.728 \\\hline
+35 & 0.682 & 0.852 & 1.052 & 1.306 & 1.690 & 2.030 & 2.438 & 2.724 \\\hline
+36 & 0.681 & 0.852 & 1.052 & 1.306 & 1.688 & 2.028 & 2.434 & 2.719 \\\hline
+37 & 0.681 & 0.851 & 1.051 & 1.305 & 1.687 & 2.026 & 2.431 & 2.715 \\\hline
+38 & 0.681 & 0.851 & 1.051 & 1.304 & 1.686 & 2.024 & 2.429 & 2.712 \\\hline
+39 & 0.681 & 0.851 & 1.050 & 1.304 & 1.685 & 2.023 & 2.426 & 2.708 \\\hline
+40 & 0.681 & 0.851 & 1.050 & 1.303 & 1.684 & 2.021 & 2.423 & 2.704 \\\hline
+\end{tabular}
+
+}
+
+\end{center}
+\end{table}
+
+\subsection{ウィルコクソンの順位和検定について}
+ウィルコクソンの順位和検定は正規性の確認が出来ない場合に、標本が同じ母集団から抽出された標本であるかを検定統計量を用いて検証できるノンパラメトリック検定である。検定統計量の求め方について説明する。次のような2群のデータがあるとする。\par
+\begin{center}
+\begin{tabular}{|l|c|}
+	\hline
+	データA &$ X_{11}, X_{12}, X_{13}, ..., X_{1N_{1}}$\\ \hline
+	データB & $ X_{21}, X_{22}, X_{23}, ..., X_{2N_{2}}$\\ \hline
+	\end{tabular}
+	\end{center}
+	
+\par
+これら2つデータ群にまたがって数値に順位を付ける。同じ数値がある場合は順位の平均を両方の数値に割り当てる。この時順位の付け方は数値の高い順でも低い順でもどちらでもよい。このとき割り当てた順位を$r_{1N_1},r_{2N_{2}}$とする。
+次にデータ数の少ないデータ群の先ほど割り当てた順位データをすべて合計する。この合計した数値が検定統計量$T=\sum_{i=1}^{N_1} r_{1i}$となる。検定統計量が極端に大きい又は小さいということは順位の割り当て手順を考えるとどちらかの群に数値の偏りがある(数値の高いものが多い群と低いものが多い群)と言える。この性質を利用して検定統計量Tをウィルコクソンの順位和検定表(表\ref{tab:jyuniwa})と比較する。その際$T\leq w_{N_1,N_2}$又は$W_{N_1,N_2}\leq T$の時、帰無仮説が棄却される。本研究では対象の標本が正規分布に従わないものがあるときウィルコクソンの順位和検定を用いて有意性の確認を行う。
+
+\begin{table}[htb]
+\includegraphics[angle=360,scale=0.5]{pdf/順位和検定.pdf}
+\caption{ウィルコクソンの順位和検定表}
+\label{tab:jyuniwa} 
+\end{table}
+
+
+
+\section{R言語について}
+R言語とは統計計算とグラフィックスのための言語・環境である\cite{r}。Rを用いるにあたり実行環境としてRstudio(図\ref{tab:Rstudio})を利用した。本研究では実験結果の検定に用いる。またR言語を使用するにあたり舟尾のホームページを参照した\cite{rrifa}。
+\begin{figure}[htb]
+\includegraphics[angle=360,scale=0.5]{pdf/Rstudio.pdf}
+\caption{Rstudio}
+\label{tab:Rstudio} 
+\end{figure}
+
+\chapter{実験}
+\section{実験概要}
+本実験では二十日大根に17kHzの正弦波を35日間付加する。条件ごとの個体で草丈、葉身長、葉身幅、収穫後の大根本体の大きさを比較することで、音刺激付加による植物への影響を調査する。
+\section{実験機材}
+実験で使用する機材は以下のとおりである。各機材の詳細は後述の表に記載している。また実験での詳しい使用方法は実験条件で説明する。
+\begin{itemize}
+  \item 二十日大根の種(アタリヤ農園　コメット) (図\ref{fig:tane})
+  \item 土(アイリスオーヤマ　花と野菜の園芸の土) (図\ref{fig:tuchi})
+  \item プランター(アイリスオーヤマ　ベジタブルプランター浅型600)(図\ref{fig:planter})
+  \item ビニール温室(タカショー　GRH-N03T)(図\ref{fig:onshitu})
+  \item スピーカーユニット(FOSTEX P650K)(図\ref{fig:speakerunit} ,表\ref{tab:speakerunit})
+  \item スピーカーボックス(FOSTEX P650-E)(図\ref{fig:speakerbox} ,表\ref{tab:speakerbox})
+  \item アンプ(Lepy LP-269s)(図\ref{fig:anpu} ,表\ref{tab:anpu})
+  \item スピーカーコード(FOSPOWER FOSCBL-2269)(図\ref{fig:code})
+  \item 30cm定規(シンワ 13013)(図\ref{fig:ruler})
+  \item データロガー付き温度計(Elitech RC-5)(図\ref{fig:ondokei} ,表\ref{tab:ondokei})
+  \item 照度計(YAZAWA　MT-EN1L-Y)(図\ref{fig:syoudo} ,表\ref{tab:syoudo})
+  \item 電源タイマー(REVEX PT70DW)(図\ref{fig:timer})
+  
+ 
+\end{itemize}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=.50\textwidth]{pdf/tane.pdf}
+	\caption{二十日大根の種(アタリヤ農園　コメット)}
+	%\flabel{logo1}
+	\label{fig:tane} 
+	%\end{landscape}
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=.50\textwidth]{pdf/tuchi.pdf}
+	\caption{土(アイリスオーヤマ　花と野菜の園芸の土)}
+	\label{fig:tuchi} 
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=.50\textwidth]{pdf/planter.pdf}
+	\caption{プランター(アイリスオーヤマ　ベジタブルプランター浅型600)}
+	\label{fig:planter} 
+	%\end{landscape}
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=.50\textwidth]{pdf/onshitsu.pdf}
+	\caption{ ビニール温室(タカショー　GRH-N03T)}
+	\label{fig:onshitu} 
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=270,width=.50\textwidth]{pdf/speakerunit.pdf}
+	\caption{スピーカーユニット(FOSTEX P650K)}
+	%\flabel{logo5}
+	\label{fig:speakerunit} 
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	
+	\makeatletter
+	\def\@captype{table}
+	\makeatother
+	
+	\caption{スピーカーユニット 仕様}
+	\begin{tabular}{l|r}
+	\hline
+	形式 & 6.5cmコーン型フルレンジ\\ \hline
+	インピーダンス & 8Ω\\ \hline
+	最低共振周波数 & 157Hz\\ \hline
+	再生周波数帯域 & f0-20kHz\\ \hline
+	出力音圧レベル & 84dB/w(1m)\\ \hline
+	入力(Mus.) & 15W \\ \hline
+	\end{tabular}
+	
+	\label{tab:speakerunit}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=270,width=.50\textwidth]{pdf/speakerbox.pdf}
+	\caption{スピーカーボックス(FOSTEX P650-E)}
+	%\flabel{logo6}
+	\label{fig:speakerbox} 
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	
+	\makeatletter
+	\def\@captype{table}
+	\makeatother
+	
+	\caption{スピーカーボックス 仕様}
+	%\tlabel{table2}
+	\label{tab:speakerbox}
+	\begin{tabular}{l|r}
+	\hline
+	形式 & バスレフ型\\ \hline
+	外箱寸法(W×H×D(mm)) & 85×170×126\\ \hline
+	内容積 & 1.00L\\ \hline
+	チューニング周波数 & 134Hz\\ \hline
+	板厚/材料 & t9/パーティクルボード\\ \hline
+	\end{tabular}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[,width=.50\textwidth]{pdf/amp.pdf}
+	\caption{アンプ(Lepy LP-269s)}
+	%\flabel{logo7} 
+	\label{fig:anpu}
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	
+	\makeatletter
+	\def\@captype{table}
+	\makeatother
+	
+	\caption{アンプ 仕様}
+	%\tlabel{table3}
+	\label{tab:anpu}
+	\begin{tabular}{l|r}
+	\hline
+	動作電源 & DC12V≧3A\\ \hline
+	出力 & 45W×4ch\\ \hline
+	インピーダンス & 4-8Ω\\ \hline
+	SNR & ＞80dB\\ \hline
+	周波数応答帯 & 20Hz-20kHz\\ \hline
+	最小THD & 0.4％未満
+	\end{tabular}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+
+\begin{figure}[tb]
+\begin{tabular}{c}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=.50\textwidth]{pdf/speakercode.pdf}
+	\caption{スピーカーコード(FOSPOWER FOSCBL-2269)}
+	%\flabel{logo8} 
+	\label{fig:code}
+	\end{minipage}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=.50\textwidth]{pdf/ruler.pdf}
+	\caption{定規(計測用)}
+	%\flabel{logo9} 
+	\label{fig:ruler}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[,width=.50\textwidth]{pdf/ondokei.pdf}
+	\caption{データロガー付き温度計(Elitech RC-5)}
+	%\flabel{logo10} 
+	\label{fig:ondokei}
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	
+	\makeatletter
+	\def\@captype{table}
+	\makeatother
+	
+	\caption{データロガー付き温度計 仕様}
+	%\tlabel{table4}
+	\label{tab:ondokei}
+	\begin{tabular}{l|r}
+	\hline
+	測定温度範囲 & -30℃～＋70℃\\ \hline
+	温度最小表示 & 0.1℃\\ \hline
+	測定精度 & ±0.5℃(-20℃～+40℃),他.+1℃\\ \hline
+	SNR & ＞80dB\\ \hline
+	周波数応答帯 & 20Hz-20kHz\\ \hline
+	最小THD & 0.4％未満
+	\end{tabular}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[,width=.50\textwidth]{pdf/syoudokei.pdf}
+	\caption{照度計 (YAZAWA MT-EN1L-Y)}
+	%\flabel{logo11} 
+	\label{fig:syoudo}
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+
+	\makeatletter
+	\def\@captype{table}
+	\makeatother
+	
+	\caption{照度計 仕様}
+	%\tlabel{table5}
+	\label{tab:syoudo}
+	\begin{tabular}{l|r}
+	\hline
+	測定範囲 & 0～199999Lux\\ \hline
+	
+	%分解能 & 
+	%\begin{tabular}{c}
+	%1Lux(9999Lux以下)\\10Lux(10000Lux以上) 
+	%\end{tabular}\\ \hline
+	
+	分解能 & 1Lux(9999Lux以下)\\
+	 &10Lux(10000Lux以上) \\ \hline
+	
+	%精度 & 
+	%\begin{tabular}{c}
+	%±5\%rdg+8dgt(9999Lux以下)\\±6\%rdg+10dgt(10000Lux以上)
+	%\end{tabular}\\ \hline
+	
+	精度 & ±5\%rdg+8dgt(9999Lux以下)\\
+	 & ±6\%rdg+10dgt(10000Lux以上)\\ \hline
+	
+	サンプリングレート &　約2回/s\\ \hline
+	\end{tabular}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[t]
+\begin{tabular}{cc}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[width=.5\textwidth]{pdf/タイマー.pdf}
+	\caption{電源タイマー(REVEX PT70DW)}
+	\label{fig:timer}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\clearpage
+
+
+\section{実験条件}
+この節では、実験に使用する植物、音源、実験場所など数値や図を用いて解説する。
+\subsection{使用植物}
+この実験では二十日大根を使用する。検体数は各条件ごとに20とした。
+\subsection{使用音源}
+音刺激用音源は17kHzの正弦波を用いる。音源はサンプリングレートが44.1kHzで17kHzの正弦波が30秒間流れるモノラル音源をMATLAB(R2019a)を用いて作成した。音源再生は作成した音源データをUSBメモリに入れ、アンプに接続し連続再生する。使用したアンプはUSB内のデータを自動でループ再生する。アンプの操作は電源タイマーを用いて指定の時刻に自動で電源の操作をする。アンプとスピーカーの配線は図\ref{fig:haisenzu}の通りである。アンプの設定はTREBLEのつまみを最大、BASSのつまみを12時方向、ボリュームのつまみを12時方向に設定する。音刺激は実験期間中、毎日午前9時から午後5時まで連続して付加した。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.7\textwidth]{pdf/配線図.pdf}
+	\caption{配線図}
+	\label{fig:haisenzu}
+\end{figure}
+
+\clearpage
+
+\subsection{実験期間}
+実験期間は6/8午前9時から7/13午後5時まで実施する。
+
+\subsection{実験環境}
+実験は東京都狛江市内の住宅街で実施した(図\ref{fig:basyo})。音刺激の有無毎にビニール温室をたてその中にプランターを設置した。プランターは上下に１つずつ設置した。左のビニール温室は音刺激あり、右のビニール温室は音刺激なしの個体を栽培する。ビニール温室間で環境の差が生じないように約30cmの間隔で設置した(図\ref{fig:kankyou})。音刺激付加に用いるスピーカーは図\ref{fig:speakerhaiti}のように設置した。ロガー付き温度計は牛乳パックを用いて直射日光を避ける処置をしてそれぞれの温室に設置した(図\ref{fig:syoti})。各温室ごとの気温、照度、騒音レベルの記録は後述の章で提示する。
+
+
+\begin{figure}[h]
+\begin{tabular}{cc}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[width=6cm]{pdf/環境全体.pdf}
+	\caption{実験場所}
+	\label{fig:basyo} 
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[width=7cm]{pdf/実験環境v1.pdf}
+	\caption{ビニールハウスの配置}
+	\label{fig:kankyou}
+	%\end{landscape}
+	\end{minipage}
+	
+	
+\end{tabular}
+\end{figure}
+%\clearpage
+
+\begin{figure}[h]
+\begin{tabular}{cc}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[width=6cm]{pdf/温度計の処置.pdf}
+	\caption{ 牛乳パックを用いた処置}
+	\label{fig:syoti} 
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[width=7cm]{pdf/speakerhaiti.jpg}
+	\caption{スピーカーの配置}
+	\label{fig:speakerhaiti}
+	%\end{landscape}
+	\end{minipage}
+	
+\end{tabular}
+\end{figure}
+\clearpage
+
+
+\begin{comment}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\textwidth]{pdf/実験環境v1.pdf}
+	\caption{実験場所}
+	\label{fig:kankyou}
+\end{figure}
+\newpage
+\end{comment}
+
+
+\begin{comment}
+\subsection{実験場所の騒音レベル}
+騒音計（RION NA-20 A 特性）を用いて騒音レベルの測定を行った。実験場所の音圧レベルは以下のとおりである。(表\tref{onatsu})
+\begin{table}[h]
+	\centering
+	\caption{実験場所の音圧レベル}
+	\tlabel{onatsu}
+	\begin{tabular}{|l|r|}
+	\hline
+	音刺激あり(音源再生中) & 65.1dB\\ \hline
+	音刺激あり(音源停止中) & 27.5dB\\ \hline
+	音刺激なし & 28.1dB\\ \hline
+	\end{tabular}
+\end{table}
+\end{comment}
+
+\section{実験場所の騒音レベル}
+騒音レベルは土を入れたプランターを置いた状態で騒音計（RION NA-20 A 特性）を用いて計測した。測定位置はプランターの淵に騒音計の本体を乗せた位置で計測した。実験場所の騒音レベルは以下のとおりである(表\ref{tab:onatsu})。表の結果より音源停止時の音刺激あり群となし群で最も差が大きいもので1.5dBである。次に音源再生時は音刺激あり群となし群間で最も差が小さいものが17.5dBであった。このことから十分に音刺激による差が出ていることが分かる。またビニール温室内左右での変動は±5dB程であった。このことからほぼ音源停止時に騒音レベルの差はないと言える。
+%\subsection{実験場所の騒音レベル}
+
+
+
+
+\begin{table}[h]
+	\centering
+	\caption{実験場所の騒音レベル}
+	\label{tab:onatsu}
+	\begin{tabular}{c||c|c|c|c}\hline
+	 & \multicolumn{2}{|c|}{音刺激あり[dB]} &  \multicolumn{2}{|c|}{音刺激なし[dB]}   \\\hline
+ 	 & 上段 & 下段 & 上段 & 下段 \\\hline\hline
+	音源再生時 & 62.5 & 61.3 & 43.8 & 42.4 \\\hline
+	音源停止時 & 43.9 & 44.5 & 43 & 43.1 \\\hline
+\end{tabular}
+\end{table}
+
+
+%\begin{table}[h]
+%	\centering
+%	\caption{実験場所の音圧レベル}
+%	\label{tab:onatsu}
+%	\begin{tabular}{c||c|c|c|c}\hline\hline
+%	 & 音刺激あり[dB] &  & 音刺激なし[dB] &  \\\hline
+%	 & 上 & 下 & 上 & 下 \\\hline
+%	音源再生時 & 62.5 & 61.3 & 43.8 & 42.4 \\\hline
+%	音源停止時 & 43.9 & 44.5 & 43 & 43.1 \\\hline
+%\end{tabular}
+%\end{table}
+
+
+
+
+
+
+\section{実験手順}
+実験手順は以下のとおりである。
+
+\begin{enumerate}
+	\item 前述した実験環境を整備する。
+	\item 種まき箇所ごとに半径5cmの間隔をあけプランターごとに10株の種を植える。
+	\item 午前9時から音刺激付加を開始する。
+	\item 音刺激付加を午後5時に停止させる。
+	\item 音刺激停止後、定規を用いて記録をする。
+	\item 期間終了後、二十日大根を収穫し各種記録をする。
+\end{enumerate}
+実験期間中は3から5の操作を繰り返し実施する。また本実験では測定をmm単位で行い、読み取り精度は小数点１桁で行う。
+計測する葉は、各世代毎に2枚ある葉のうち大きい方の数値を記録した。また2週目の最終日に土寄せを行う。これにより草丈の測定位置を大根と茎の境目に変更する。
+
+定規を用いた計測は以下の図の通り実施した(図n)。
+
+
+\chapter{実験結果}
+この章では初めに各条件の実験環境を表す音圧レベル、温度、照度について各データの平均、標準偏差を用いて説明する。次に各条件ごとの生長差を草丈、葉身長、葉身幅のそれぞれについて平均、標準偏差、日毎のグラフを用いて説明する。この章で取り扱わなかったデータは付録に掲載する。
+
+
+\section{有効な個体数}
+実験開始時に各条件ごとに20株ずつ植えたが、分析をするにあたり特に虫食いがひどいものについては除外をして分析を実施した。これにより分析に用いた検体は音刺激あり群で18株、音刺激なし群で19株であった。
+
+
+
+
+\section{ビニール温室毎の温度差}
+実験期間中にロガー付き温度計(図\ref{fig:ondokei})を用いてビニール温室内の温度を測定した。測定は期間中1時間ごとに自動で記録をした。ここでは音刺激付加をしている9時から17時の記録を用いる。期間中に記録した温度を表\ref{tab:ondodata}に示す。表では条件ごとに期間中の同時刻に計測された気温の平均と条件同士の平均、標準偏差を示している。表の結果からビニール温室間の平均の差は最も大きいもので1.8℃である。この差は日没にかけて日が傾くことによる差であると考えられる。このことから2つのビニール温室間におおむね差はないと言える。
+%\clearpage
+\begin{table}[htb]
+\begin{center}
+\caption{ビニール温室毎の温度差}
+\label{tab:ondodata}
+
+\begin{comment}
+\begin{tabular}{c||c|c|c|c}\hline
+時間 & 音あり[℃] & 音なし[℃] & 平均[℃] & 標準偏差[℃] \\\hline\hline
+9:00 & 26.4 & 26.2 & 26.3 & 0.1 \\\hline
+10:00 & 27.6 & 27.5 & 27.6 & 0.1 \\\hline
+11:00 & 29.4 & 29.2 & 29.3 & 0.1 \\\hline
+12:00 & 29.9 & 29.8 & 29.9 & 0.1 \\\hline
+13:00 & 31.6 & 31.0 & 31.3 & 0.3 \\\hline
+14:00 & 31.3 & 30.7 & 31.0 & 0.3 \\\hline
+15:00 & 31.2 & 29.4 & 30.3 & 0.9 \\\hline
+16:00 & 29.7 & 28.5 & 29.1 & 0.6 \\\hline
+17:00 & 27.3 & 27.5 & 27.4 & 0.1 \\\hline
+\end{tabular}
+\end{comment}
+
+
+\begin{tabular}{c||c|c|c|c|c}\hline
+ & \multicolumn{2}{|c|}{音あり[℃]}   & \multicolumn{2}{|c|}{音なし[℃]}   &  \\\hline
+時間 & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均の差 \\\hline\hline
+9:00 & 26.4 & 3.2 & 26.2 & 3.1 & 0.2 \\\hline
+10:00 & 27.6 & 3.9 & 27.5 & 3.9 & 0.1 \\\hline
+11:00 & 29.4 & 5.2 & 29.2 & 5.0 & 0.3 \\\hline
+12:00 & 29.9 & 5.1 & 29.8 & 5.2 & 0.1 \\\hline
+13:00 & 31.6 & 6.8 & 31.0 & 6.4 & 0.5 \\\hline
+14:00 & 31.3 & 7.1 & 30.7 & 6.5 & 0.7 \\\hline
+15:00 & 31.2 & 7.5 & 29.4 & 5.2 & 1.8 \\\hline
+16:00 & 29.7 & 6.1 & 28.5 & 4.6 & 1.2 \\\hline
+17:00 & 27.3 & 3.4 & 27.5 & 3.8 & 0.2 \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\newpage
+
+\section{ビニール温室毎の照度差}
+実験期間中に照度計(図\ref{fig:syoudo})を用いて各条件のビニールハウスの照度を測定した。測定は音刺激付加をしている9時から17時の1時間毎に手動で記録をした。
+3日間(7/9-11)で記録した照度を表\ref{tab:syoudodata}に示す。表では条件別に1時間毎の照度の平均・標準偏差と平均の差を記述している。表\ref{tab:syoudodata}の結果からビニール温室間の平均の差は最も大きいもので513luxとなっている。屋外の晴天時の照度が約100000lux、屋外の曇天時の照度が約10000luxであることからこれらの差は小さな値である。よって各条件のビニール温室間の照度に差はない。
+%\clearpage
+
+\begin{comment}
+\begin{table}[htb]
+\begin{center}
+\caption{ビニール温室間の照度差}
+\label{tab:syoudodata}
+\begin{tabular}{c||c|c|c|c}\hline
+時間 & 音あり[lux] & 音なし[lux] & 平均[lux] & 標準偏差[lux] \\\hline
+9:00 & 7969 & 8062 & 8016 & 46 \\\hline
+10:00 & 5279 & 5313 & 5296 & 17 \\\hline
+11:00 & 10002 & 10043 & 10023 & 20 \\\hline
+12:00 & 12482 & 12702 & 12592 & 110 \\\hline
+13:00 & 4382 & 4361 & 4371 & 10 \\\hline
+14:00 & 9225 & 9237 & 9231 & 6 \\\hline
+15:00 & 5698 & 5700 & 5699 & 1 \\\hline
+16:00 & 5142 & 5165 & 5154 & 12 \\\hline
+17:00 & 2252 & 2194 & 2223 & 29 \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{comment}
+
+
+\begin{table}[htb]
+\begin{center}
+\caption{ビニール温室間の照度差}
+\label{tab:syoudodata}
+\scalebox{0.8}{
+\begin{tabular}{c||c|c|c|c|c|c|c|c|c|c}\hline
+ & \multicolumn{4}{|c|}{音あり[lux]}  & \multicolumn{4}{|c|}{音なし[lux]}  &  &  \\\hline
+  & \multicolumn{2}{|c|}{上}  & \multicolumn{2}{|c|}{下} & \multicolumn{2}{|c|}{上}  & \multicolumn{2}{|c|}{下}  & 上  & 下 \\\hline
+% & 音あり &  &  &  & 音なし &  &  &  &  &  \\\hline
+時間 & 平均 & 標準偏差 & 平均 & 標準偏差& 平均& 標準偏差& 平均& 標準偏差 & 平均の差 & 平均の差\\\hline\hline
+9:00 & 8948 & 2068 & 6990 & 1562 & 9145 & 2277 & 6979 & 1582 & 196 & 11 \\\hline
+10:00 & 5881 & 1267 & 4676 & 1508 & 5937 & 1307 & 4688 & 1548 & 56 & 12 \\\hline
+11:00 & 11753 & 2853 & 8251 & 1574 & 11966 & 2908 & 8120 & 1581 & 213 & 132 \\\hline
+12:00 & 16123 & 7773 & 8841 & 3736 & 16637 & 8193 & 8768 & 3639 & 513 & 73 \\\hline
+13:00 & 4811 & 2867 & 3953 & 2611 & 4845 & 2870 & 3877 & 2615 & 34 & 75 \\\hline
+14:00 & 10088 & 4209 & 8363 & 4329 & 10170 & 4225 & 8305 & 4413 & 82 & 58 \\\hline
+15:00 & 6609 & 1226 & 4786 & 975 & 6703 & 1183 & 4698 & 977 & 94 & 89 \\\hline
+16:00 & 5852 & 911 & 4432 & 824 & 5911 & 925 & 4420 & 826 & 59 & 12 \\\hline
+17:00 & 2615 & 1446 & 1890 & 1094 & 2646 & 1456 & 1743 & 928 & 31 & 147 \\\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+
+\section{音刺激毎の生長差}
+表\ref{tab:sokuteidata}に週ごとの各計測箇所、表\ref{tab:kotaidata}に各個体のデータを示す。除外した個体については空白となっている。 表\ref{tab:syuukaku}に収穫後の各計測箇所の平均と標準偏差の計測結果を示す。また週毎の各種計測箇所の平均をグラフ(図\ref{fig:1week}-\ref{fig:5week})に示す。グラフにデータの記載のない項目はその時点で生えていない項目である。音刺激ありと音刺激なしの間に有意差があるかを検証するためにt検定またはウィルコクソンの順位和検定を有意水準5\%で実施した。有意差のあったデータは表の数値の大きい条件のデータに米印で表記する。\par
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%表\ref{tab:sokuteidata}より音刺激ありの数値が音刺激がないものと比べて大きく有意差の確認できた項目は、草丈の5週目,合計、子葉の葉身長の3週目,合計、葉身幅の2,3週目,合計であった。反対に草丈の3週目、第2世代の葉身長の2,3週目,合計では音刺激なしの数値が大きく、有意差があることが確認できる。\par
+%表\ref{tab:syuukaku}より収穫後の大根では音刺激ありの数値が音刺激がないものと比べて大きい項目はなく、長さにおいては音刺激なしに有意差をがあることを確認できる。
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+表\ref{tab:sokuteidata}より、音刺激あり群が大きかったデータは、草丈が1, 2, 4, 5週目と合計、子葉の葉身長で1週目以外の全て、葉身幅で全て、第2世代の葉身幅で全て、第3世代の葉身長で3, 5週目、葉身幅で4, 5週目であった。しかし検定で有意差が確認できたデータはなかった。p値が最も低いものが草丈の合計で、p値が0.1782であった。\par
+表\ref{tab:syuukaku}より音刺激なし群のデータが長さ・重量で大きかった。しかし検定で有意差の確認はできなかった。\par
+これらのことより音刺激の有無毎に若干の差が確認できたが、有意な差を確認することはできなかった。
+
+
+
+
+
+\begin{table}[h]
+\begin{center}
+\caption{測定データの平均・標準偏差}
+\label{tab:sokuteidata}
+\scalebox{0.7}{
+\begin{tabular}{c|c||c|c|c|c|c|c|c|c|c|c|c|c}\hline
+ &  & \multicolumn{2}{|c|}{1週目}   & \multicolumn{2}{|c|}{2週目}  & \multicolumn{2}{|c|}{3週目}  & \multicolumn{2}{|c|}{4週目}  & \multicolumn{2}{|c|}{5週目}  & \multicolumn{2}{|c|}{合計}  \\\hline
+ &  & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 \\\hline\hline
+草丈[mm] & 音あり & 46.8 & 7.3 & 75.8 & 10.3 & 103.9 & 15.8 & 169.8 & 23.3 & 239.8 & 32.1 & 235.4 & 31.7 \\
+ & 音なし & 45.9 & 6.7 & 74.6 & 10.1 & 106.5 & 15.0 & 169.1 & 23.7 & 228.5 & 35.0 & 227.4 & 29.9 \\\hline
+葉身長(子)[mm] & 音あり & 11.7 & 1.4 & 22.4 & 3.2 & 25.3 & 3.6 & 25.3 & 3.6 & 25.3 & 3.6 & 18.7 & 3.3 \\
+ & 音なし & 11.7 & 1.8 & 21.4 & 3.2 & 24.3 & 3.8 & 24.3 & 3.8 & 24.3 & 3.8 & 17.6 & 3.6 \\\hline
+葉身幅(子)[mm] & 音あり & 17.7 & 1.6 & 29.8 & 3.4 & 32.0 & 3.5 & 32.0 & 3.5 & 32.0 & 3.5 & 22.0 & 3.0 \\
+ & 音なし & 17.4 & 2.9 & 29.1 & 3.3 & 31.0 & 3.3 & 31.0 & 3.3 & 31.0 & 3.3 & 21.3 & 3.6 \\\hline
+葉身長(2)[mm] & 音あり & 0.0 & 0.0 & 28.4 & 5.9 & 66.1 & 11.4 & 75.7 & 13.0 & 76.5 & 13.2 & 62.1 & 13.2 \\
+ & 音なし & 0.0 & 0.0 & 29.2 & 8.3 & 69.1 & 12.3 & 78.1 & 13.3 & 79.1 & 13.3 & 66.2 & 13.1 \\\hline
+葉身幅(2)[mm] & 音あり & 0.0 & 0.0 & 19.6 & 3.4 & 44.9 & 4.8 & 49.9 & 4.5 & 50.5 & 4.6 & 40.0 & 4.6 \\
+ & 音なし & 0.0 & 0.0 & 19.2 & 5.1 & 43.9 & 9.3 & 48.6 & 10.0 & 48.9 & 10.0 & 39.0 & 8.9 \\\hline
+葉身長(3)[mm] & 音あり & 0.0 & 0.0 & 0.0 & 0.0 & 61.8 & 18.4 & 112.1 & 20.1 & 140.3 & 16.4 & 122.9 & 17.1 \\
+ & 音なし & 0.0 & 0.0 & 0.0 & 0.0 & 60.6 & 18.8 & 114.4 & 17.2 & 137.9 & 21.7 & 125.9 & 22.8 \\\hline
+葉身幅(3)[mm] & 音あり & 0.0 & 0.0 & 0.0 & 0.0 & 36.7 & 10.4 & 67.8 & 9.9 & 82.4 & 11.8 & 70.4 & 11.8 \\
+ & 音なし & 0.0 & 0.0 & 0.0 & 0.0 & 37.4 & 10.6 & 65.7 & 9.5 & 80.9 & 12.4 & 71.6 & 13.3 \\\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\begin{comment}
+\begin{table}[h]
+\begin{center}
+\caption{測定データの平均・標準偏差}
+\label{tab:sokuteidata}
+\scalebox{0.7}{
+\begin{tabular}{c|c||c|c|c|c|c|c|c|c|c|c|c|c}\hline
+ &  & 1週目 &  & 2週目 &  & 3週目 &  & 4週目 &  & 5週目 &  & 合計 &  \\\hline
+ &  & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 \\\hline\hline
+草丈[mm] & 音あり & 46.8 & 7.3 & 75.8 & 10.3 & 103.9 & 15.8 & 169.8 & 23.3 & *239.8 & 32.1 & *235.4 & 31.7 \\
+ & 音なし & 45.9 & 6.7 & 74.6 & 10.1 & *106.5 & 15.0 & 169.1 & 23.7 & 228.5 & 35.0 & 227.4 & 29.9 \\\hline
+葉身長(子)[mm] & 音あり & 11.7 & 1.4 & 22.4 & 3.2 & *25.3 & 3.6 & 25.3 & 3.6 & 25.3 & 3.6 & *18.7 & 3.3 \\
+ & 音なし & 11.7 & 1.8 & 21.4 & 3.2 & 24.3 & 3.8 & 24.3 & 3.8 & 24.3 & 3.8 & 17.6 & 3.6 \\\hline
+葉身幅(子)[mm] & 音あり & 17.7 & 1.6 & *29.8 & 3.4 & *32.0 & 3.5 & 32.0 & 3.5 & 32.0 & 3.5 & *22.0 & 3.0 \\
+ & 音なし & 17.4 & 2.9 & 29.1 & 3.3 & 31.0 & 3.3 & 31.0 & 3.3 & 31.0 & 3.3 & 21.3 & 3.6 \\\hline
+葉身長(2)[mm] & 音あり & 0.0 & 0.0 & 28.4 & 5.9 & 66.1 & 11.4 & 75.7 & 13.0 & 76.5 & 13.2 & 62.1 & 13.2 \\
+ & 音なし & 0.0 & 0.0 & *29.2 & 8.3 & *69.1 & 12.3 & 78.1 & 13.3 & 79.1 & 13.3 & *66.2 & 13.1 \\\hline
+葉身幅(2)[mm] & 音あり & 0.0 & 0.0 & 19.6 & 3.4 & 44.9 & 4.8 & 49.9 & 4.5 & 50.5 & 4.6 & 40.0 & 4.6 \\
+ & 音なし & 0.0 & 0.0 & 19.2 & 5.1 & 43.9 & 9.3 & 48.6 & 10.0 & 48.9 & 10.0 & 39.0 & 8.9 \\\hline
+葉身長(3)[mm] & 音あり & 0.0 & 0.0 & 0.0 & 0.0 & 61.8 & 18.4 & 112.1 & 20.1 & 140.3 & 16.4 & 122.9 & 17.1 \\
+ & 音なし & 0.0 & 0.0 & 0.0 & 0.0 & 60.6 & 18.8 & 114.4 & 17.2 & 137.9 & 21.7 & 125.9 & 22.8 \\\hline
+葉身幅(3)[mm] & 音あり & 0.0 & 0.0 & 0.0 & 0.0 & 36.7 & 10.4 & 67.8 & 9.9 & 82.4 & 11.8 & 70.4 & 11.8 \\
+ & 音なし & 0.0 & 0.0 & 0.0 & 0.0 & 37.4 & 10.6 & 65.7 & 9.5 & 80.9 & 12.4 & 71.6 & 13.3 \\\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+\end{comment}
+
+\begin{comment}
+\begin{table}[h]
+\begin{center}
+\caption{測定データの平均・標準偏差}
+\label{tab:sokuteidata}
+\scalebox{0.7}{
+\begin{tabular}{c|c||c|c|c|c|c|c|c|c|c|c|c|c}\hline\hline
+ &  & 1週目 &  & 2週目 &  & 3週目 &  & 4週目 &  & 5週目 &  & 合計 &  \\\hline
+ &  & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 & 平均 & 標準偏差 \\\hline
+草丈[mm] & 音あり & 46.8 & 7.3 & 75.8 & 10.3 & *103.9 & 15.8 & 169.8 & 23.3 & *239.8 & 32.1 & *235.4 & 31.7 \\
+ & 音なし & 45.9 & 6.7 & 74.6 & 10.1 & *106.5 & 15.0 & 169.1 & 23.7 & *228.5 & 35.0 & *227.4 & 29.9 \\\hline
+葉身長(子)[mm] & 音あり & 11.7 & 1.4 & 22.4 & 3.2 & *25.3 & 3.6 & 25.3 & 3.6 & 25.3 & 3.6 & *18.7 & 3.3 \\
+ & 音なし & 11.7 & 1.8 & 21.4 & 3.2 & *24.3 & 3.8 & 24.3 & 3.8 & 24.3 & 3.8 & *17.6 & 3.6 \\\hline
+葉身幅(子)[mm] & 音あり & 17.7 & 1.6 & *29.8 & 3.4 & *32.0 & 3.5 & 32.0 & 3.5 & 32.0 & 3.5 & *22.0 & 3.0 \\
+ & 音なし & 17.4 & 2.9 & *29.1 & 3.3 & *31.0 & 3.3 & 31.0 & 3.3 & 31.0 & 3.3 & *21.3 & 3.6 \\\hline
+葉身長(2)[mm] & 音あり & 0.0 & 0.0 & *28.4 & 5.9 & *66.1 & 11.4 & 75.7 & 13.0 & 76.5 & 13.2 & *62.1 & 13.2 \\
+ & 音なし & 0.0 & 0.0 & *29.2 & 8.3 & *69.1 & 12.3 & 78.1 & 13.3 & 79.1 & 13.3 & *66.2 & 13.1 \\\hline
+葉身幅(2)[mm] & 音あり & 0.0 & 0.0 & 19.6 & 3.4 & 44.9 & 4.8 & 49.9 & 4.5 & 50.5 & 4.6 & 40.0 & 4.6 \\
+ & 音なし & 0.0 & 0.0 & 19.2 & 5.1 & 43.9 & 9.3 & 48.6 & 10.0 & 48.9 & 10.0 & 39.0 & 8.9 \\\hline
+葉身長(3)[mm] & 音あり & 0.0 & 0.0 & 0.0 & 0.0 & 61.8 & 18.4 & 112.1 & 20.1 & 140.3 & 16.4 & 122.9 & 17.1 \\
+ & 音なし & 0.0 & 0.0 & 0.0 & 0.0 & 60.6 & 18.8 & 114.4 & 17.2 & 137.9 & 21.7 & 125.9 & 22.8 \\\hline
+葉身幅(3)[mm] & 音あり & 0.0 & 0.0 & 0.0 & 0.0 & 36.7 & 10.4 & 67.8 & 9.9 & 82.4 & 11.8 & 70.4 & 11.8 \\
+ & 音なし & 0.0 & 0.0 & 0.0 & 0.0 & 37.4 & 10.6 & 65.7 & 9.5 & 80.9 & 12.4 & 71.6 & 13.3 \\\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+\end{comment}
+
+\begin{comment}
+\begin{table}[h]
+\begin{center}
+\caption{収穫後計測}
+\label{tab:syuukaku}
+\begin{tabular}c|c||c|c}\hline
+ &  & 音あり & 音なし \\\hline\hline
+長さ(mm) & 平均 & *30.1 & *33.4 \\\hline
+ & 標準偏差 & 6.8 & 7.4 \\\hline
+横幅(mm) & 平均 & 10.9 & 11.9 \\\hline
+ & 標準偏差 & 4.3 & 6.5 \\\hline
+重量(g) & 平均 & 1.8 & 2.4 \\\hline
+ & 標準偏差 & 2.1 & 2.4 \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{comment}
+
+
+\begin{table}[h]
+\begin{center}
+\caption{収穫後計測}
+\label{tab:syuukaku}
+\begin{tabular}{c||c|c|c}\hline\hline
+ &  & 平均 & 標準偏差 \\\hline
+長さ(mm) & 音あり & 30.1 & 6.8 \\
+ & 音なし & 33.4 & 7.4 \\\hline
+横幅(mm) & 音あり & 10.9 & 4.3 \\
+ & 音なし & 11.9 & 6.5 \\\hline
+重量(g) & 音あり & 1.8 & 2.1 \\
+ & 音なし & 2.4 & 2.4 \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\begin{comment}
+\begin{table}[h]
+\begin{center}
+\caption{収穫後計測}
+\label{tab:syuukaku}
+\begin{tabular}{c||c|c|c}\hline\hline
+ &  & 平均 & 標準偏差 \\\hline
+長さ(mm) & 音あり & *30.1 & 6.8 \\
+ & 音なし & *33.4 & 7.4 \\\hline
+横幅(mm) & 音あり & 10.9 & 4.3 \\
+ & 音なし & 11.9 & 6.5 \\\hline
+重量(g) & 音あり & 1.8 & 2.1 \\
+ & 音なし & 2.4 & 2.4 \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{comment}
+
+
+\begin{table}[h]
+\begin{center}
+\caption{各個体のデータ}
+\label{tab:kotaidata}
+\scalebox{0.65}{
+\begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}\hline
+音あり  & 1 & 2 & 3 & 4 & 4 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 14 & 16 & 17 & 18 & 19 & 20 \\\hline
+長さ(mm) & 24.4 & 24 & 28.4 & 37.4 & 29 & 34 & 37.4 &  & 28.4 & 36.4 & 32.4 & 19 &  & 31 & 22.4 & 47.4 & 32 & 34 & 31.4 & 24 \\\hline
+横幅(mm) & 6 & 7.4 & 6.4 & 6.4 & 6 & 12.4 & 14.4 &  & 18 & 11.4 & 8.4 & 4 &  & 7 & 12 & 23.4 & 13 & 12.4 & 14.4 & 7.4 \\\hline
+重量(g) & 0.2 & 0.7 & 0.4 & 0.6 & 0.4 & 1.8 & 2.9 &  & 4 & 1.6 & 1 & 0.2 &  & 0.7 & 1.4 & 9.4 & 1.7 & 1.4 & 2.6 & 0.4 \\\hline\hline
+音なし  & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\\hline
+長さ(mm) & 32.4 & 38.4 & 33 & 31 & 30.4 & 34 & 44.4 & 31 & 38.4 & 31.4 & 41.4 & 21.4 & 24 & 24 & 19 & 34 & 44.4 & 27.4 & 43 &  \\\hline
+横幅(mm) & 10.4 & 24 & 18.4 & 4.4 & 10 & 14 & 22.4 & 8.4 & 24 & 10 & 7 & 4 & 6.4 & 8 & 3.4 & 14.4 & 6.4 & 7 & 19.4 &  \\\hline
+ 重量(g) & 1.4 & 7.4 & 4.2 & 0.3 & 1.4 & 2.4 & 7.8 & 1.3 & 7.2 & 1.2 & 0.4 & 0.2 & 0.4 & 0.7 & 0.1 & 4.1 & 0.6 & 0.4 & 4.4 &  \\\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[width=7.5cm]{pdf/第1回生長過程pdf/第1週.pdf}
+	\caption{第1週}
+	\label{fig:1week} 
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[width=7.5cm]{pdf/第1回生長過程pdf/第2週.pdf}
+	\caption{第2週}
+	\label{fig:2week} 
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[width=7.5cm]{pdf/第1回生長過程pdf/第3週.pdf}
+	\caption{第3週}
+	\label{fig:3week} 
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[width=7.5cm]{pdf/第1回生長過程pdf/第4週.pdf}
+	\caption{第4週}
+	\label{fig:4week} 
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[width=7.5cm]{pdf/第1回生長過程pdf/第5週.pdf}
+	\caption{第5週}
+	\label{fig:5week} 
+	\end{minipage}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[width=7.5cm]{pdf/収穫後pdf/収穫後計測.pdf}
+	\caption{収穫後計測}
+	\label{fig:syuukakugo} 
+	\end{minipage}
+	
+	
+\end{tabular}
+\end{figure}
+
+
+\clearpage
+
+\section{考察}%%%%%%%%
+%結果より音刺激により草丈、子葉の葉身長、葉身幅で有意差のある生長の促進が確認できた。その他の項目でも有意な差は確認できないものの若干の生長促進を確認できた。\par
+%しかし第2世代の葉身長では音刺激なしの記録が大きく、有意な差も確認できる結果が得られた。\par
+%収穫後の計測では音刺激ありには音刺激なしの記録より大きいものはなく、長さにおいては音刺激なしに有意な差があることが確認できた。\par
+%これは音刺激あり群は葉や草丈が音刺激により生長が促進され養分が集中することで、大根の部分は成長が抑制されたと予想される。\par
+%他の要因として日照不足が考えられる。本実験を実施した期間中3週目以降は天候不良によって日照時間が少なかった。これにより収穫された検体は通常の物より小さなものであった。この日照不足によって音刺激以外の影響が生じた可能性も考えられる。
+
+%%%%%%%%%%%%%%
+結果より音刺激群の有無によって若干の生長差が見られたが、有意な差は確認できなかった。\par
+
+要因として考えられることは2点ある。\par
+1つは実験期間中の天候不順である。本実験を実施した期間中3週目以降は天候不良によって日照時間が少なかった。これにより収穫された検体は通常の物より小さなものであった。この日照不足によって音刺激以外の影響が生じた可能性がある。
+
+2つ目は使用した音源の音圧レベルの低さである。今回の実験では約60dB程であったが、先行研究では70dB以上の音圧レベルで実験を行っていた。この音圧レベルの差が、先行研究のように生長差を確認できなかった原因であると考えられる。\par
+
+
+
+%%%%%%%%%%%%%%
+
+
+\chapter{まとめ}
+\section{結論}
+%本研究は音刺激が食用野菜の生長に与える影響を検証するため実施した。実験から音刺激ありの条件で草丈、子葉の葉身長,葉身幅に有意水準5\%で有意な差のある変化を確認できた。また収穫後の二十日大根には、音刺激なしの条件で長さに有意水準5\%で有意な差のある生長の促進が確認できた。
+
+%%%%%%%%%%%%%%
+本研究では音刺激が食用野菜の生長に与える影響を検証した。その結果、音刺激の有無で若干の生長差が生じたが有意な差を確認することはできなかった。
+%%%%%%%%%%%%%%
+
+\section{今後の課題}
+今後の課題としてはさらにさまざまな種類の作物に対して実験を行うことが挙げられる。今回使用した二十日大根は根の部分が主に食用とされる根菜類である。この他にも野菜にはトマトのような果実が食用とされる果菜類などがある。これらの異なる分類の野菜に与える影響を検証することが課題である。
+
+\begin{thebibliography}{3}
+ \bibitem{key1}坂本憲昭,「音刺激によるカイワレダイコンの生長促進について」,『計測自動制御学会産業論文集』, Vol5, No4, pp. 25-26, 2006 年
+ \bibitem{key2}平井 儀彦, 井上 美由紀, 津田 誠,「音刺激が作物の生育に及ぼす影響」,『日本作物学会中国支部研究集録』, 40巻 , pp. 40-41, 1999年
+ \bibitem{key4}土屋 幹夫, 吉長 健嗣, 熊野 誠一, 平井 儀彦,「音刺激によるダイズおよびキュウリの葉面電位の変化」, 日本作物学会中国支部研究集録, 36巻, pp. 19-25, 1995年
+ \bibitem{key3}深井翔太, 「音刺激付加による植物の生長度合の変化」, 『工学院大学卒業論文』, 2018年
+ 
+ \bibitem{nyuumon}栗原伸一,「入門統計学」, オーム社, 2017年
+ \bibitem{databinran}「データ科学便覧」,  ホーム/実装関連事項/統計検定法, URL(https://data-science.gr.jp/implementation.html), (参照2020/8/1)
+ %\bibitem{databinran}データ科学便覧,URL(https://data-science.gr.jp/),(参照2020/8/1)
+ \bibitem{r}「The R Project for Statistical Computing」, URL(https://www.r-project.org/), (参照2020/8/1)
+ \bibitem{rrifa}「統計解析フリーソフトRの備忘録頁 ver.3.1」, URL(http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html), (参照2020/8/1)
+ \bibitem{key5}株式会社日立保険サービス, 「ぐっすり眠るための明かりの取りいれ方」, URL(https://www.hitachi-hoken.co.jp/woman/health/p12.html), (参照:2020/8/8)
+\end{thebibliography}
+
+\appendix
+\chapter{日毎の生長記録}
+ここでは記録したデータの日毎の平均をグラフ化したものを示す。横軸が日付、縦軸がデータの長さを表す。
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/第1回生長過程pdf/草丈全期間.pdf}
+	\caption{草丈の生長記録}
+	\label{fig:kusataketotal} 
+	%\end{landscape}
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/第1回生長過程pdf/葉身長1A.pdf}
+	\caption{子葉の葉身長の生長記録}
+	\label{fig:1hashintyou} 
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/第1回生長過程pdf/葉身長2A.pdf}
+	\caption{第2世代の葉身長の生長記録}
+	\label{fig:2hashintyou} 
+	%\end{landscape}
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/第1回生長過程pdf/葉身長3A.pdf}
+	\caption{第3世代の葉身長の生長記録}
+	\label{fig:3hashintyou} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/第1回生長過程pdf/葉身幅1A.pdf}
+	\caption{子葉の葉身幅の生長記録}
+	\label{fig:1hashinpuku} 
+	%\end{landscape}
+	\end{minipage}
+	
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/第1回生長過程pdf/葉身幅2A.pdf}
+	\caption{第2世代の葉身幅の生長記録}
+	\label{fig:2hashinpuku} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/第1回生長過程pdf/葉身幅3A.pdf}
+	\caption{第3世代の葉身幅の生長記録}
+	\label{fig:3hashinpuku} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+
+
+\chapter{Rによる検定結果の出力}
+次に検定の結果を示す。検定結果の各数値について説明する。2行目に記載されている数値が、検定統計量(t又はw)、自由度(df)、p値(p-value)である。5行目に記載されている数値が信頼限界である。最終行に書かれている数値が各標本の平均値である。
+
+
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/草丈1.png}
+	\caption{1週目の草丈の検定結果}
+	\label{fig:kusatake1t} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/草丈2.png}
+	\caption{2週目の草丈の検定結果}
+	\label{fig:kusatake2t} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/草丈3.png}
+	\caption{3週目の草丈の検定結果}
+	\label{fig:kusatake3t} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/草丈4.png}
+	\caption{4週目の草丈の検定結果}
+	\label{fig:kusatake4t} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/草丈5.png}
+	\caption{5週目の草丈の検定結果}
+	\label{fig:kusatake5t} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/草丈T.png}
+	\caption{草丈の生長量合計の検定結果}
+	\label{fig:kusatakeTt} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長1-1.png}
+	\caption{1週目の葉身長(子葉)の検定結果}
+	\label{fig:hashintyou1-1} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長1-2.png}
+	\caption{2週目の葉身長(子葉)の検定結果}
+	\label{fig:hashintyou1-2} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長1-3.png}
+	\caption{3週目の葉身長(子葉)の検定結果}
+	\label{fig:hashintyou1-3} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長1-T.png}
+	\caption{葉身長(子葉)の生長量合計の検定結果}
+	\label{fig:hashintyou1-T} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅1-1.png}
+	\caption{1週目の葉身幅(子葉)の検定結果}
+	\label{fig:hashinpuku1-1} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅1-2.png}
+	\caption{2週目の葉身幅(子葉)の検定結果}
+	\label{fig:hashinpuku1-2} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅1-3.png}
+	\caption{3週目の葉身幅(子葉)の検定結果}
+	\label{fig:hashinpuku1-3} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅1-T.png}
+	\caption{葉身幅(子葉)の生長量合計の検定結果}
+	\label{fig:hashinpuku1-T} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長2-2.png}
+	\caption{2週目の葉身長(第2世代)の検定結果}
+	\label{fig:hashintyou2-2} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長2-3.png}
+	\caption{3週目の葉身長(第2世代)の検定結果}
+	\label{fig:hashintyou2-3} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長2-4.png}
+	\caption{4週目の葉身長(第2世代)の検定結果}
+	\label{fig:hashintyou2-4} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長2-T.png}
+	\caption{葉身長(第2世代)の生長量合計の検定結果}
+	\label{fig:hashintyou2-T} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅2-2.png}
+	\caption{2週目の葉身幅(第2世代)の検定結果}
+	\label{fig:hashinpuku2-2} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅2-3.png}
+	\caption{3週目の葉身幅(第2世代)の検定結果}
+	\label{fig:hashinpuku2-3} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅2-4.png}
+	\caption{4週目の葉身幅(第2世代)の検定結果}
+	\label{fig:hashinpuku2-4} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅2-T.png}
+	\caption{葉身幅(第2世代)の生長量合計の検定結果}
+	\label{fig:hashinpuku2-T} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長3-3.png}
+	\caption{3週目の葉身長(第3世代)の検定結果}
+	\label{fig:hashintyou3-3} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長3-4.png}
+	\caption{4週目の葉身長(第3世代)の検定結果}
+	\label{fig:hashintyou3-4} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長3-5.png}
+	\caption{5週目の葉身長(第3世代)の検定結果}
+	\label{fig:hashintyou3-5} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身長3-T.png}
+	\caption{葉身長(第3世代)の生長量合計の検定結果}
+	\label{fig:hashintyou3-T} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅3-3.png}
+	\caption{3週目の葉身幅(第3世代)の検定結果}
+	\label{fig:hashinpuku3-3} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅3-4.png}
+	\caption{4週目の葉身幅(第3世代)の検定結果}
+	\label{fig:hashinpuku3-4} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅3-5.png}
+	\caption{5週目の葉身幅(第3世代)の検定結果}
+	\label{fig:hashinpuku3-5} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/葉身幅3-T.png}
+	\caption{葉身幅(第3世代)の生長量合計の検定結果}
+	\label{fig:hashinpuku3-T} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/長さ.png}
+	\caption{収穫後の長さの検定結果}
+	\label{fig:length} 
+	%\end{landscape}
+	\end{minipage}
+	
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/横幅.png}
+	\caption{収穫後の横幅の検定結果}
+	\label{fig:width} 
+	%\end{landscape}
+	\end{minipage}
+\end{tabular}
+\end{figure}
+\begin{figure}[tb]
+\begin{tabular}{cc}
+	%\begin{landscape}
+	\begin{minipage}{0.5\hsize}
+	\centering
+	\includegraphics[angle=360,width=7cm]{pdf/分析結果/重量.png}
+	\caption{収穫後の重量の検定結果}
+	\label{fig:weight} 
+	%\end{landscape}
+	\end{minipage}
+	
+	
+\end{tabular}
+\end{figure}
+
+
+
+
+
+
+
+\chapter{分析に使用したRのソースコード}
+結果の分析にはRを使用して各種検定を実施した。ここではその流れをソースコードを用いて解説する。プログラムの流れは以下のとおりである。
+\begin{enumerate}
+	\item カレントディレクトリに置いた測定データが入ったCSVファイルを読み込む。(2-3行目)
+	\item 読み込まれたデータを週、条件ごとに抽出し配列に代入する。(7-22行目)
+	\item 読み込んだデータの正規性をシャピロウィルク検定を行い確認する。(26-33行目)
+	\item 読み込んだデータの等分散性をF検定を行い確認する。(38-41行目)
+	\item 等分散性の確認できたデータにT検定を実行する。(44-45行目)
+	\item 等分散性の確認できなかったデータにウィルコクソンの順位和検定を実行する。(47-48行目)
+\end{enumerate}
+
+
+\begin{lstlisting}[caption = 分析に使用したソースコード , label = program1]
+#CSVファイルの読み込み
+library(exactRankTests)
+setwd("C:/Users/user/Desktop/卒論フォルダ/分析フォルダ/分析実行")
+data=read.csv("葉身長CSV.csv",header = F)
+
+#読み込まれたCSVファイルのデータを週と音刺激毎に抽出し配列に代入
+week1A=as.matrix(data[1,2:19])
+week1A=c(as.numeric(week1A))
+week1B=as.matrix(data[2,2:20])
+week1B=c(as.numeric(week1B))
+week2A=as.matrix(data[3,2:19])
+week2A=c(as.numeric(week2A))
+week2B=as.matrix(data[4,2:20])
+week2B=c(as.numeric(week2B))
+week3A=as.matrix(data[5,2:19])
+week3A=c(as.numeric(week3A))
+week3B=as.matrix(data[6,2:20])
+week3B=c(as.numeric(week3B))
+weekTA=as.matrix(data[11,2:19])
+weekTA=c(as.numeric(weekTA))
+weekTB=as.matrix(data[12,2:20])
+weekTB=c(as.numeric(weekTB))
+
+
+#正規性の確認 帰無仮説：正規分布に従う（p<a(有意水準)）で棄却
+shapiro.test(week1A)
+shapiro.test(week1B)
+shapiro.test(week2A)
+shapiro.test(week2B)
+shapiro.test(week3A)
+shapiro.test(week3B)
+shapiro.test(weekTA)
+shapiro.test(weekTB)
+
+
+#正規性の確認
+#等分散性の確認 帰無仮説: 2群の母分散が等しい(p<a)で棄却
+var.test(week1A,week1B)
+var.test(week2A,week2B)
+var.test(week3A,week3B)
+var.test(weekTA,weekTB)
+
+#T検定を実行
+t.test(week3A,week3B, conf.level=0.95, var.equal=TRUE)
+t.test(weekTA,weekTB, conf.level=0.95, var.equal=TRUE)
+#ウィルコクソンの順位和検定を実行
+wilcox.test(week1A,week1B,conf.int = T,conf.level = 0.95)
+wilcox.test(week2A,week2B,conf.int = T,conf.level = 0.95)
+
+
+
+\end{lstlisting}
+
+
+
+\end{document}
