@@ -1,0 +1,180 @@
+%
+% 卒業論文要旨テンプレート
+% BachelorThesis.tex
+% By KASHINA, Yuki (EM-14003)
+%  Version 1.0.2 (November 16, 2015, Monday)
+%  Version 1.0.1 (September 15, 2015, Tuesday)
+%
+\documentclass{BachelorAbstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ユーザ任意のパッケージ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{booktabs}
+%\usepackage{multirow}
+%\usepackage{xcolor}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% マクロ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%<local definition>
+%</local definition>
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 行間調整
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\baselinestretch}{1.00}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 書誌情報
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 日本語タイトル・サブタイトル
+\jtitle{``BachelorAbstract.cls''および``BachelorAbstractSample.tex''の使い方}{要旨執筆に関する覚書}
+
+%%% 英語タイトル・サブタイトル
+\etitle{How to use ``BachelorAbstract.cls'' and ``BachelorAbstractSample.tex''}{Guideline for Abstract}
+
+%%% 所属学科
+\affiliate{情報学専攻}
+
+%%% 所属研究室
+\laboratory{数理音響学研究室}
+
+%%% 氏名・学籍番号
+\author{加科~優希}{KASHINA,~Yuki}
+
+%%% 指導教官名・指導教官役職
+\supervisor{中島~弘史}{准教授}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 本文
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+
+\section{はじめに}
+本ファイルは，第5期数理音響学研究室M2の加科優希（EM-14003）により2015年11月13日（金）に作成された卒業論文要旨のための\LaTeX クラスファイルとテンプレートのセットである．本稿では，テンプレートの基本的な使い方について記載する．
+
+
+\section{書誌情報の設定}
+書誌情報の必須設定パラメタはjtitle，etitle，affiliate，laboratory，author，supervisorの6つである．必須設定パラメタは，論文の執筆時に必ず設定する必要がある．なお，要旨にはオプション設定パラメタは存在しない．
+
+\begin{description}
+	\item[jtitle] 卒業論文の日本語タイトルを設定する．第二引数は副題（ない場合は空にする）．
+	\[
+		\operatorname{\string\jtitle}\{title~(jp)\}\{sub~title~(jp)\}
+	\]
+	\item[etitle] 卒業論文の英語タイトルを設定する．第二引数は副題（ない場合は空にする）．
+	\[
+		\operatorname{\string\etitle}\{title~(en)\}\{sub~title~(en)\}
+	\]
+	\item[affiliate] 学科を設定する．
+	\[
+		\operatorname{\string\affiliate}\{department\}
+	\]
+	\item[laboratory] 研究室名を設定する．
+	\[
+		\operatorname{\string\laboratory}\{lab.~name\}
+	\]
+	\item[author] 氏名を設定する．第二引数は英語氏名．
+	\[
+		\operatorname{\string\author}\{your~name~(jp)\}\{your~name~(en)\}
+	\]
+	\item[supervisor] 指導教官名およびその役職を設定する．
+	\[
+		\operatorname{\string\supervisor}\{supervisor~name\}\{professorship\}
+	\]
+\end{description}
+
+
+\section{用紙について}
+図，表，写真も含めて，A4の用紙2枚に収めること．余白は天地それぞれ21~mmずつ，左右それぞれ16~mmずつとする．また，カラム間の空白は12~mmとした。印刷時は両面印刷とすること．
+
+
+\section{本文の執筆}
+句点は``．''（全角ピリオド）を，句読点は``，''（全角カンマ）を使用すること．また，行間は
+\[
+	\operatorname{\string\baselinestretch}\{ratio\}
+\]
+コマンドを使用して適宜調整すること．ここで$ratio$は行間の倍率を意味するパラメタである．
+
+\textbackslash{}begin\{document\}以下から\LaTeX あるいは\TeX の作法に従い執筆すること．よく使うフレーズや実験パラメタをマクロとして登録する等して，効率よく執筆することを推奨する．こうすることで，保守性が増し，ヒューマンエラーが削減可能である．例えば，実験パラメタを変更した場合でもマクロとして登録していた場合にはマクロの定義を書き換えるだけで済むが，本文中に記載していた場合にはその全てを修正する手間がかかる．本テンプレートには，加科が原稿執筆で用いているマクロ（flabel，fref，tlabel，tref，elabel，eref）を予め定義した．
+
+なお，要旨の執筆に不要と思われるchapter，subsubsection，paragraph，subparagraphコマンドは削除した。これらの使用を検討する場合，章立ての見直しを強く推奨する。
+
+
+\section{図表と写真}
+写真は図として扱うこと．\fref{logo}や\tref{figure-table-rule}のように図表は共に中央寄せにする．また，図表はページ（カラム）の天または地にまとめて配置すること（本稿ではそのように配置されている）．なお，どうしても不可能という場合以外，図表は参照されるページより前か同一ページに配置される必要がある．以下に図表ごとの配置作法を示す．
+
+
+\subsection{図について}
+キャプションは下部に記述する．
+図はカラーでも可だが，カラー，モノクロームの種別に依らず白黒でも識別可能なよう作図することが望ましい．例えば，図示にあたり，``赤色の線は◯◯，青色の線は…''といった説明を要するグラフは望ましくない．``実線は◯◯，破線は…''のように，色に頼らずデータを識別可能にすることを推奨する．カラーであることの意義は，モノクロームでも十分識別可能なデータを``よりわかりやすくすること''にある．
+
+\begin{figure}[tb]
+	\centering
+	\fbox{\includegraphics[width=.15\textwidth]{KogakuinUniversity}}
+	\caption{校章}
+	\flabel{logo}
+\end{figure}
+
+
+\subsection{表について}
+キャプションは上部に記述する．
+表の最上部の罫線は二重罫線か太い罫線を用いるのが通例である．本研究室では二重罫線を用いるものとする．データ部とラベル部の区切りにそれぞれ罫線を用いること．それ以外は，データ集合が変わる場所など意味上の区切りがある場所以外で縦罫線は使用しないこと．
+
+なお，英文では縦罫線を一切使わないことも珍しくない．縦罫線を使用しない前提であれば，見栄えを良くするためbooktabsパッケージを使うことを推奨する．詳細は各自の調査に委ねる．
+
+\tref{figure-table-rule}は図表の配置作法をまとめた表である．この例では縦罫線を使用しているが，このような場合booktabsパッケージの使用は推奨しない．かえって見栄えが悪くなる．
+
+\begin{table}[bt]
+	\centering
+	\caption{図表の配置作法．Colorは推奨値である．また，B and Wは白黒，Monochromeはグレイスケールを意味する．}
+	\tlabel{figure-table-rule}
+	\begin{tabular}{l|lll}
+		\hline\hline
+		Type~\textbackslash{}~Setting & Caption & Align & Color\\
+		\hline
+		Figure & Bottom & Center & B and W\\
+		Table & Top & Center & B and W\\
+		Picture & Bottom & Center & Monochrome\\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\subsection{\LaTeX 特有の注意点}
+\LaTeX は歴史の長さ故に，伝統とバッドノウハウが存在する．ここではそれらの一部を紹介する．
+
+キャプションをつける際，label系コマンドはcaptionコマンドの直下に配置すること．この順序関係を崩すと正しくラベリングされない可能性がある．
+
+中央寄せにはcenter環境ではなくcenteringコマンドを用いること．center環境とvspaceによる調整方法が一般に認識されているが，バッドノウハウである．centeringコマンドはfigureまたはtable環境をbeginした後，一度だけ\textbackslash{}centeringと記述すれば良い．
+
+
+\section{参考文献}
+参考文献の記述作法は本稿の``参考文献''を参照すること．pp.A--Bのpp.は``pages''の意味であり，複数範囲のページを参照する場合に用いる．
+
+
+\section{まとめ}
+本稿では``BachelorAbstract.cls''クラスファイルおよび``BachelorAbstractSample.tex''テンプレートを用いて\LaTeX~and/or~\TeX で工学院大学情報学部の卒業論文（PBL）の要旨を執筆するために必要な情報を概説した．本テンプレートが有効に活用されることを願う．
+
+
+\section*{謝辞}
+本クラスファイルの作成にあたり計算機構成研究室の三好和憲教授および，先進ソフトウェア研究室・高性能計算研究室より提供していただいたテンプレートを参考にしました．共に感謝申し上げます．
+
+
+\begin{thebibliography}{9}
+	\bibitem{c1} （雑誌の場合；雑誌とは論文誌等のこと）著者名，``標題，'' 雑誌名，巻，号，pp.A--B，Month，年.
+	\bibitem{c2} （著書，編書の場合）著者名，書名，編者名，発行所，発行都市名，発行年.
+	\bibitem{c3} （著書の一部を引用する場合）著者名，``標題，'' 書名，編者名，章番号またはpp.A--B，発行所，発行都市名，発行年.
+	\bibitem{c4} （国際学会論文集の場合）著者名, ``標題, '' 会議名, no.A, pp.B--C, 都市名, 国名, Month, 年.
+	\bibitem{c5} （国内学会，研究会論文集の場合）著者名，``標題，'' 学会論文集名，vol.A，no.B，pp.C--D，都市名，国名，Month，年.
+\end{thebibliography}
+
+\end{document}
